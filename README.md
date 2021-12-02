@@ -1,6 +1,5 @@
 # Product Table React
-
-Simple app that displays the data from JSON using React.
+A simple app that takes in JSON data and displays it in a good-looking table with searching through said table system.
 
 ### Tech stack:
 * React.js
