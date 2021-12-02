@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { SearchBar } from './SearchBar/SearchBar';
+import { ProductTable } from './ProductTable/ProductTable';
 
-function App() {
+function App(props) {
+  const [filterText, setFilterText] = React.useState('');
+  const [inStockOnly, setInStockOnly] = React.useState(false);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col pt-10 items-center min-h-screen w-full bg-gray-900 text-white">
+      <h1 className="text-3xl font-bold mb-5">Products</h1>
+      <SearchBar filterText={filterText} inStockOnly={inStockOnly} onFilterTextChange={txt => setFilterText(txt)} onInStockChange={inStock => setInStockOnly(inStock)} />
+      <ProductTable products={props.products} filterText={filterText} inStockOnly={inStockOnly} />
     </div>
   );
 }
